@@ -1,0 +1,23 @@
+class GfG
+{
+    void levelOrder(Node node) 
+    {
+        Queue<Node> q = new LinkedList<Node>();
+        if(node==null){
+            return;
+        }
+        if(q.isEmpty()){
+            q.add(node);
+        }
+        while(!q.isEmpty()){
+            if(q.peek().left!=null){
+                q.add(q.peek().left);
+            }
+            if(q.peek().right!=null){
+               q.add(q.peek().right); 
+            }
+            System.out.print(q.peek().data+" ");
+            q.remove();
+        }
+    }
+}
