@@ -1,0 +1,36 @@
+class GfG
+{
+    ArrayList<Integer> printx(Node node, ArrayList<Integer> al){
+        if(node == null)
+		    return null;
+		if(node.left!=null && node.right!=null){
+		    al = printx(node.left,al);
+		    al = printx(node.right,al);
+		}
+		else if(node.left!=null && node.right==null){
+		    al.add(node.left.data);
+		    //System.out.print(node.left.data + " ");
+		    al = printx(node.left,al);
+		}
+		else if(node.right!=null && node.left==null){
+		    al.add(node.right.data);
+		    //System.out.print(node.right.data + " ");
+		    al = printx(node.right,al);
+		}
+		return al;
+    }
+    
+	void printSibling(Node node)
+	{
+	    ArrayList<Integer> al = new ArrayList<Integer>(); 
+		al = printx(node, al);
+		Collections.sort(al);
+		if(al.isEmpty()){
+		    System.out.print("-1");
+		}else{
+    		for(int e:al){
+    		    System.out.print(e+" ");
+    		}
+		}
+	}
+}
